@@ -15,7 +15,7 @@ async fn main() -> std::io::Result<()> {
     use actix_web::*;
     use actix_multipart::form::{MultipartFormConfig, tempfile::TempFileConfig};
     use leptos_actix::{generate_route_list, LeptosRoutes};
-    use shareboxx::app::*;
+    use liminalbox::app::*;
 
     let conf = get_configuration(None).await.unwrap();
     let addr = conf.leptos_options.site_addr;
@@ -91,7 +91,7 @@ pub fn main() {
     // a client-side main function is required for using `trunk serve`
     // prefer using `cargo leptos serve` instead
     // to run: `trunk serve --open --features csr`
-    use shareboxx::app::*;
+    use liminalbox::app::*;
 
     console_error_panic_hook::set_once();
 
@@ -138,12 +138,12 @@ async fn domain_redirect(
     req: ServiceRequest,
     next: Next<impl MessageBody + 'static>,
 ) -> Result<ServiceResponse<impl MessageBody>, Error> {
-    // Check if request hostname matches shareboxx.lan, otherwise redirect to it.
-    if req.connection_info().host() != "shareboxx.lan" && !req.connection_info().host().starts_with("127.0.0.1") {
+    // Check if request hostname matches liminalbox.lan, otherwise redirect to it.
+    if req.connection_info().host() != "liminalbox.lan" && !req.connection_info().host().starts_with("127.0.0.1") {
         return Ok(ServiceResponse::new(
             req.request().to_owned(),
             HttpResponse::TemporaryRedirect()
-                .append_header(("Location", "https://shareboxx.lan"))
+                .append_header(("Location", "https://liminalbox.lan"))
                 .finish(),
         )
         .map_into_boxed_body());
@@ -156,11 +156,11 @@ async fn domain_redirect(
 #[get("/ws")]
 async fn counter_events() -> impl Responder {
     use actix_web::web;
-    use shareboxx::app::ssr_imports::*;
+    use liminalbox::app::ssr_imports::*;
     use futures::StreamExt;
 
     let stream = futures::stream::once(async {
-        shareboxx::app::get_message_count().await.unwrap_or(0)
+        liminalbox::app::get_message_count().await.unwrap_or(0)
     })
     .chain(COUNT_CHANNEL.clone())
     .map(|value| {
