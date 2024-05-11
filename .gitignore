@@ -19,3 +19,6 @@ Cargo.lock
 /target
 /files
 chat.json
+
+#liminal journey exhib media
+/assets/media

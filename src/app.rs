@@ -12,20 +12,20 @@ pub fn App() -> impl IntoView {
     provide_meta_context();
 
     view! {
-        <Html attr:data-bs-theme="dark"/>
+        <Html />
         // injects a stylesheet into the document <head>
         // id=leptos means cargo-leptos will hot-reload this stylesheet
         <Stylesheet id="leptos" href="/pkg/shareboxx.css"/>
 
         // sets the document title
-        <Title text="Welcome to ShareBoxx"/>
+        <Title text="LIMINAL JOURNEY"/>
 
         // content for this welcome page
         <Router>
             <main>
                 <Routes>
                     <Route path="" view=HomePage/>
-                    <Route path="/*any" view=NotFound/>
+                    <Route path="/*any" view=HomePage/>
                 </Routes>
             </main>
         </Router>
@@ -37,43 +37,88 @@ pub fn App() -> impl IntoView {
 fn HomePage() -> impl IntoView {
     let (path, set_path) = create_signal("".to_string());
     view! {
-        <div class="container-fluid">
-            <div class="row">
+        <div id="main" style="background: #e2221e;">
+            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center; ">
+                <img src="/assets/media/splash-logo.png" alt="Descrizione dell'immagine" style="max-width: 100%; max-height: 100%;" />
+            </div>
 
-                <div class="col text-left">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col text-left">
-                                <div class="card">
-                                    <h2 class="card-header">Welcome to Shareboxx</h2>
-                                    <div class="card-body">
-                                        <p class="card-text">Shareboxx is a free offline fire sharing service. You can upload files and share them with others. <br/>
-                                        This is an local, anonymous service with no internet connection and no accounts. Note that executables are not checked for malware, so be careful what you download.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col text-left">
-                                <p/>
-                                <FileUploadComponent path=path/>
-                            </div>
-                        </div>
+            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
+                <div>
+                    <img src="/assets/media/1.jpg" alt="Descrizione dell'immagine" style="max-width: 90%; max-height: 90%;" /><br />
+                    <div class="">
+                        Gina Barbaginas
                     </div>
                 </div>
-                <div class="col text-left">
+            </div>
+
+            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
+                <div>
+                    But you are real?<br />
+                    Either aliens are fake and so are you, or both exist.<br />
+                    Choose.<br />
+                </div>
+            </div>
+
+            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
+                <video src="/assets/media/rec1.mp4" controls style="max-width: 75%; max-height: 75%;" />
+            </div>
+
+            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
+                <audio src="/assets/media/audio.mpga" controls style="max-width: 75%; max-height: 75%;" />
+            </div>
+
+            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
+                <video src="/assets/media/cat.mp4" mute autoplay loop style="max-width: 75%; max-height: 75%;" />
+            </div>
+
+            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
+                <video src="/assets/media/cool3dw.mp4" controls loop style="max-width: 75%; max-height: 75%;" />
+            </div>
+            
+            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
+                <img src="/assets/media/real.jpg" alt="Descrizione dell'immagine" style="max-width: 75%; max-height: 75%;" />
+            </div>
+
+            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
+                <div>
+                    But you are real?<br />
+                    Either aliens are fake and so are you, or both exist.<br />
+                    Choose.<br />
+                    But you are real?<br />
+                    Either aliens are fake and so are you, or both exist.<br />
+                    Choose.<br />
+                </div>
+            </div>
+
+            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
+                <img src="/assets/media/tunnel.gif"  style="width: 100%; max-height: 10%;" />
+            </div>
+
+            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
+                <img src="/assets/media/wheel.png" alt="Descrizione dell'immagine" style="max-width: 75%; max-height: 75%;" />
+            </div>
+
+            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
+                <img src="/assets/media/paradox.jpg" alt="Descrizione dell'immagine" style="max-width: 75%; max-height: 75%;" />
+            </div>
+        
+
+            // <div class="#card">
+            //     <h2 class="c#ard-header">Download Files</h2>
+            //     <div class="#card-body">
+            //         <FileListComponent path=path set_path=set_path/>
+            //     </div>
+            // </div>
+            // <br/>
+
+            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
+                <div style="max-width: 50%;">
                     <ChatComponent/>
                 </div>
             </div>
+
+            
         </div>
-        <p/>
-        <div class="card">
-            <h2 class="card-header">Download Files</h2>
-            <div class="card-body">
-                <FileListComponent path=path set_path=set_path/>
-            </div>
-        </div>
-        <br/>
     }
 }
 
@@ -155,135 +200,138 @@ pub async fn get_file_list(
     Ok(file_entries)
 }
 
-#[component]
-pub fn FileUploadComponent(
-    path: ReadSignal<String>,
-) -> impl IntoView {
-    view! {
-        <div class="card">
-            <h2 class="card-header">Upload Files</h2>
-            <div class="card-body">
-                <form action="/upload" rel="external" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="upload_path" value={path.clone()}/>
-                    <input type="file" multiple name="file"/>
-                    <button type="submit">Submit</button>
-                </form>            
-            </div>
-        </div>
-    }
+// #[component]
+// pub fn FileUploadComponent(
+//     path: ReadSignal<String>,
+// ) -> impl IntoView {
+//     view! {
+//         <div class="card">
+//             <h2 class="card-header">Upload Files</h2>
+//             <div class="card-body">
+//                 <form action="/upload" rel="external" method="post" enctype="multipart/form-data">
+//                     <input type="hidden" name="upload_path" value={path.clone()}/>
+//                     <input type="file" multiple name="file"/>
+//                     <button type="submit">Submit</button>
+//                     <img src="/assets/folder.png" style="width: 48px; height: 48px; margin-right: 10px"/>
 
-}
+//                     <video controls src="/assets/2024-04-18 18-48-09.mp4"/>
+//                 </form>            
+//             </div>
+//         </div>
+//     }
 
-#[component]
-pub fn FileListComponent(
-    path: ReadSignal<String>,
-    set_path: WriteSignal<String>
-) -> impl IntoView {
-    // our resource
-    let directory_listing = create_local_resource(
-        path,
-        // every time `count` changes, this will run
-        |value| async move {
-            logging::log!("loading data from API for path {:?}", value);
-            get_file_list(value).await
-        },
-    );
+// }
 
-    // the resource's loading() method gives us a
-    // signal to indicate whether it's currently loading
-    let loading = directory_listing.loading();
-    let is_loading = move || if loading() { "Loading..." } else { "" };
-    view! {
-        <div>
-        Current Directory: {path.clone()}
-        <br/>
-        <p/>
-        {is_loading}
-        <div class="list-group">
-            {
-                move || { 
-                    match directory_listing.get() {
-                        Some(result) => {
-                            match result {
-                                Ok(files) => {
-                                    files.into_iter()
-                                    .map(move |n| {
-                                        let (file_type_clone, file_name_clone, file_size_clone) = &n.clone();
-                                        let path_value_clone = path.clone().get();
-                                        let mut link_target: String = "#".to_string();
-                                        if file_type_clone.clone() == "f" {
-                                            link_target = format!("/files/{}/{}", path_value_clone, file_name_clone.clone()).to_string();
-                                        }
-                                        view!{
-                                        <a href={link_target} rel="external" on:click=move |ev| {
-                                                let path_value = path.get();
-                                                let (file_type, file_name, _file_size) = n.clone();
-                                                // If path is "..", remove the last directory from the path
-                                                if file_name == ".." {
-                                                    ev.prevent_default();
-                                                    let mut path_clone = path_value.clone();
-                                                    let mut path_parts: Vec<&str> = path_clone.split("/").collect();
-                                                    path_parts.pop();
-                                                    path_parts.pop();
-                                                    path_clone = path_parts.join("/");
-                                                    if !path_clone.ends_with("/") && !path_clone.is_empty() {
-                                                        path_clone.push_str("/");
-                                                    }
-                                                    set_path(path_clone);
-                                                } else {
-                                                    // if file_type is a directory, append it to the path
-                                                    if file_type == "d" {
-                                                        ev.prevent_default();
-                                                        let mut path_clone = path_value.clone();
-                                                        path_clone.push_str(file_name.clone().as_str());
-                                                        path_clone.push_str("/");
-                                                        set_path(path_clone);
-                                                    }
-                                                }
-                                            } class="list-group-item list-group-item-action">
-                                            <img src={if file_type_clone == "d" {"/assets/folder.png"} else {"/assets/file.png"}} style="width: 48px; height: 48px; margin-right: 10px"/>
-                                            {
-                                                if file_type_clone == "d" {
-                                                    format!("{}/", file_name_clone)
-                                                } else {
-                                                    format!("{}", file_name_clone)
-                                                }
-                                            }
-                                            <span class="float-end">
-                                            {
-                                                if file_type_clone == "f" {
-                                                    format!("{} ", file_size_clone.fmt_size(Conventional))
-                                                } else {
-                                                    "".to_string()
-                                                }
-                                            }
-                                            </span>
-                                        </a>
-                                        }
-                                    })
-                                    .collect_view()
-                                }
-                                Err(e) => {
-                                    logging::log!("Error displaying files: {:?}", e);
-                                    leptos::View::Text(view! {
-                                        "ERROR: Could not display files. Please try again later."
-                                    })
-                                }
-                            }
-                        }
-                        None => {
-                            leptos::View::Text(view! {
-                                "No files found."
-                            })
-                        }
-                    }
-                }
-            }
-            </div>
-        </div>
-    }
+// #[component]
+// pub fn FileListComponent(
+//     path: ReadSignal<String>,
+//     set_path: WriteSignal<String>
+// ) -> impl IntoView {
+//     // our resource
+//     let directory_listing = create_local_resource(
+//         path,
+//         // every time `count` changes, this will run
+//         |value| async move {
+//             logging::log!("loading data from API for path {:?}", value);
+//             get_file_list(value).await
+//         },
+//     );
 
-}
+//     // the resource's loading() method gives us a
+//     // signal to indicate whether it's currently loading
+//     let loading = directory_listing.loading();
+//     let is_loading = move || if loading() { "Loading..." } else { "" };
+//     view! {
+//         <div>
+//         Current Directory: {path.clone()}
+//         <br/>
+//         <p/>
+//         {is_loading}
+//         <div class="list-group">
+//             {
+//                 move || { 
+//                     match directory_listing.get() {
+//                         Some(result) => {
+//                             match result {
+//                                 Ok(files) => {
+//                                     files.into_iter()
+//                                     .map(move |n| {
+//                                         let (file_type_clone, file_name_clone, file_size_clone) = &n.clone();
+//                                         let path_value_clone = path.clone().get();
+//                                         let mut link_target: String = "#".to_string();
+//                                         if file_type_clone.clone() == "f" {
+//                                             link_target = format!("/files/{}/{}", path_value_clone, file_name_clone.clone()).to_string();
+//                                         }
+//                                         view!{
+//                                         <a href={link_target} rel="external" on:click=move |ev| {
+//                                                 let path_value = path.get();
+//                                                 let (file_type, file_name, _file_size) = n.clone();
+//                                                 // If path is "..", remove the last directory from the path
+//                                                 if file_name == ".." {
+//                                                     ev.prevent_default();
+//                                                     let mut path_clone = path_value.clone();
+//                                                     let mut path_parts: Vec<&str> = path_clone.split("/").collect();
+//                                                     path_parts.pop();
+//                                                     path_parts.pop();
+//                                                     path_clone = path_parts.join("/");
+//                                                     if !path_clone.ends_with("/") && !path_clone.is_empty() {
+//                                                         path_clone.push_str("/");
+//                                                     }
+//                                                     set_path(path_clone);
+//                                                 } else {
+//                                                     // if file_type is a directory, append it to the path
+//                                                     if file_type == "d" {
+//                                                         ev.prevent_default();
+//                                                         let mut path_clone = path_value.clone();
+//                                                         path_clone.push_str(file_name.clone().as_str());
+//                                                         path_clone.push_str("/");
+//                                                         set_path(path_clone);
+//                                                     }
+//                                                 }
+//                                             } class="list-group-item list-group-item-action">
+//                                             <img src={if file_type_clone == "d" {"/assets/folder.png"} else {"/assets/file.png"}} style="width: 48px; height: 48px; margin-right: 10px"/>
+//                                             {
+//                                                 if file_type_clone == "d" {
+//                                                     format!("{}/", file_name_clone)
+//                                                 } else {
+//                                                     format!("{}", file_name_clone)
+//                                                 }
+//                                             }
+//                                             <span class="float-end">
+//                                             {
+//                                                 if file_type_clone == "f" {
+//                                                     format!("{} ", file_size_clone.fmt_size(Conventional))
+//                                                 } else {
+//                                                     "".to_string()
+//                                                 }
+//                                             }
+//                                             </span>
+//                                         </a>
+//                                         }
+//                                     })
+//                                     .collect_view()
+//                                 }
+//                                 Err(e) => {
+//                                     logging::log!("Error displaying files: {:?}", e);
+//                                     leptos::View::Text(view! {
+//                                         "ERROR: Could not display files. Please try again later."
+//                                     })
+//                                 }
+//                             }
+//                         }
+//                         None => {
+//                             leptos::View::Text(view! {
+//                                 "No files found."
+//                             })
+//                         }
+//                     }
+//                 }
+//             }
+//             </div>
+//         </div>
+//     }
+
+// }
 
 #[server(GetChatMessages)]
 pub async fn get_chat_messages(
@@ -402,7 +450,7 @@ pub fn ChatComponent() -> impl IntoView {
 
     view! {
         <div class="card">
-        <h2 class="card-header">Chat</h2>
+        <h2 class="card-header">Guestbook</h2>
         <div class="card-body overflow-y-scroll">
           {
             move || { 
@@ -414,8 +462,8 @@ pub fn ChatComponent() -> impl IntoView {
                                 .map(move |n| {
                                     let (user, message, _timestamp) = n.clone();
                                     view!{
-                                    <div class="card">
-                                        <div class="card-body">
+                                    <div class="card" style="margin-top: 3rem; margin-bottom: 3rem;">
+                                        <div class="card-body" >
                                             <p class="card-text">{user}: {message}</p>
                                         </div>
                                     </div>
@@ -423,16 +471,16 @@ pub fn ChatComponent() -> impl IntoView {
                                 }).collect_view()
                             },
                             Err(e) => {
-                                logging::log!("Error displaying chat messages: {:?}", e);
+                                logging::log!("Error displaying Guestbook: {:?}", e);
                                 leptos::View::Text(view! {
-                                    "ERROR: Could not display chat messages. Please try again later."
+                                    "ERROR: Could not display Guestbook. Please try again later."
                                 })
                             }
                         }
                     },
                     None => {
                         leptos::View::Text(view! {
-                            "No chat messages found"
+                            "No messages found"
                         })
                     }
                 }
@@ -441,8 +489,8 @@ pub fn ChatComponent() -> impl IntoView {
           <div>
           <form on:submit=on_submit>
             <input type="text" class="form-control" placeholder="Name" node_ref=name_input_ref />
-            <input type="text" class="form-control" placeholder="Type a chat message" node_ref=chat_input_ref />
-            <button class="btn btn-outline-secondary" type="submit" id="button-send">Send</button>
+            <input type="text" class="form-control" placeholder="Leave " node_ref=chat_input_ref />
+            <button class="btn btn-outline-secondary" type="submit" id="button-send">Add</button>
             </form>
           </div>
 
