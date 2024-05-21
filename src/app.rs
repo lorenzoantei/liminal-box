@@ -5,58 +5,57 @@ use leptos_meta::*;
 use leptos_router::*;
 #[cfg(feature = "ssr")]
 use ammonia::clean;
+use rand::seq::SliceRandom;  // Aggiungi questa linea per importare la funzione di selezione casuale
 
 #[component]
 pub fn App() -> impl IntoView {
-    // Provides context that manages stylesheets, titles, meta tags, etc.
     provide_meta_context();
 
     view! {
         <Html />
-        // injects a stylesheet into the document <head>
-        // id=leptos means cargo-leptos will hot-reload this stylesheet
-        // <Stylesheet id="leptos" href="/pkg/shareboxx.css"/>
-
-        // sets the document title
         <Title text="LIMINAL JOURNEY"/>
         <Stylesheet id="leptos" href="/pkg/shareboxx.css"/>
         <Script src="/assets/abstractglitch.js"></Script>
 
-        // content for this welcome page
         <Router>
             <main>
                 <Routes>
                     <Route path="" view=Splash/>
                     <Route path="/home" view=HomePage/>
                     <Route path="/*any" view=Splash/>
-                    
                 </Routes>
             </main>
         </Router>
     }
 }
 
-
-/// Renders the home page of your application.
 #[component]
 fn Splash() -> impl IntoView {
-    // let (path, set_path) = create_signal("".to_string());
+    // Array di codici HTML
+    let html_snippets = vec![
+        r#"<div class="snippet">Snippet 1: Hello, world!</div>"#,
+        r#"<div class="snippet">Snippet 2: Welcome to the splash page!</div>"#,
+        r#"<div class="snippet">Snippet 3: Enjoy your stay!</div>"#,
+    ];
+
+    // Seleziona un codice HTML casualmente
+    let selected_html = html_snippets.choose(&mut rand::thread_rng()).unwrap_or(&html_snippets[0]);
+
+    // Crea un segnale per il codice HTML selezionato
+    let (html_content, set_html_content) = create_signal(selected_html.to_string());
+
     view! {
-
-        <div id="maincontainer" class="bg-red" style="min-height: 100vh;" >
-
+        <div id="maincontainer" class="bg-red" style="min-height: 100vh;">
             <a href="/home">splash</a>
-            
-       </div>
-       <script>
-            document.write("OK");
-        </script>
-     
-        <noscript>
-            Sorry, JavaScript is not supported by your browser!
-        </noscript>
+            // Utilizza il segnale per renderizzare il codice HTML
+            <div inner_html={html_content.get()}></div>
+            <noscript>
+                Sorry, JavaScript is not supported by your browser!
+            </noscript>
+        </div>
     }
 }
+
 
 /// Renders the home page of your application.
 #[component]
