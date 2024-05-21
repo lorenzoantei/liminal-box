@@ -46,7 +46,6 @@ fn Splash() -> impl IntoView {
         <div id="maincontainer" class="bg-red" style="min-height: 100vh;" >
 
             <a href="/home">splash</a>
-            </ br>
             
        </div>
        <script>
