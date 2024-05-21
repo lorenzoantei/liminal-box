@@ -47,14 +47,15 @@ fn Splash() -> impl IntoView {
 
             <a href="/home">splash</a>
             </ br>
-            <script>
+            
+       </div>
+       <script>
             document.write("OK");
         </script>
      
         <noscript>
             Sorry, JavaScript is not supported by your browser!
         </noscript>
-       </div>
     }
 }
 
