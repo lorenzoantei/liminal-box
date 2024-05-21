@@ -1,4 +1,4 @@
-use fmtsize::{Conventional, FmtSize};
+// use fmtsize::{Conventional, FmtSize};
 use leptos::{html::Input, *};
 use leptos::ev::SubmitEvent;
 use leptos_meta::*;
@@ -15,110 +15,661 @@ pub fn App() -> impl IntoView {
         <Html />
         // injects a stylesheet into the document <head>
         // id=leptos means cargo-leptos will hot-reload this stylesheet
-        <Stylesheet id="leptos" href="/pkg/liminalbox.css"/>
+        // <Stylesheet id="leptos" href="/pkg/shareboxx.css"/>
 
         // sets the document title
         <Title text="LIMINAL JOURNEY"/>
+        <Stylesheet id="leptos" href="/pkg/shareboxx.css"/>
+        <Script src="/assets/abstractglitch.js"></Script>
 
         // content for this welcome page
         <Router>
             <main>
                 <Routes>
-                    <Route path="" view=HomePage/>
-                    <Route path="/*any" view=HomePage/>
+                    <Route path="" view=Splash/>
+                    <Route path="/home" view=HomePage/>
+                    <Route path="/*any" view=Splash/>
+                    
                 </Routes>
             </main>
         </Router>
     }
 }
 
+
+/// Renders the home page of your application.
+#[component]
+fn Splash() -> impl IntoView {
+    // let (path, set_path) = create_signal("".to_string());
+    view! {
+
+        <div id="maincontainer" class="bg-red" style="min-height: 100vh;" >
+
+            <a href="/home">splash</a>
+            </ br>
+            <script>
+            document.write("OK");
+        </script>
+     
+        <noscript>
+            Sorry, JavaScript is not supported by your browser!
+        </noscript>
+       </div>
+    }
+}
+
 /// Renders the home page of your application.
 #[component]
 fn HomePage() -> impl IntoView {
-    let (path, set_path) = create_signal("".to_string());
+    // let (path, set_path) = create_signal("".to_string());
     view! {
-        <div id="main" style="background: #e2221e;">
-            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center; ">
-                <img src="/assets/media/splash-logo.png" alt="Descrizione dell'immagine" style="max-width: 100%; max-height: 100%;" />
-            </div>
 
-            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
-                <div>
-                    <img src="/assets/media/1.jpg" alt="Descrizione dell'immagine" style="max-width: 90%; max-height: 90%;" /><br />
-                    <div class="">
-                        Gina Barbaginas
+        <div id="maincontainer" class="bg-red" style="min-height: 100vh;" >
+
+            // <section id="hero">
+            //     <div class="justify-center" style="min-height: 100vh; align-items: center;">
+            //         <img class="max-w-50 max-h-50" src="/assets/logo_w.png" alt="Liminal Journey" style="margin: 0;" />
+            //     </div>
+            // </section>
+
+            // <section id="abstract">
+            //     <div class="justify-center" style="min-height: 100vh; align-items: center;">
+            //         <div class="w-60 pb-80">
+            //             <h2 class="apfelgrotezk text-white">ABSTRACT</h2>
+            //             <div id="text-container-en">
+            //                 <p>
+            //                     <span class="weird">Anomaly</span>. <span class="weird">Irregularity</span>, <span class="weird">deviation</span> from the general rule, or from a structure, from a type considered normal.
+            //                     Man is guided by a variety of factors, such as emotions, beliefs, religion, and social context. Factors like these can create barriers and hinder the ability to effectively learn from mistakes. In addition, changes require an often unfathomable sacrifice.
+            //                 </p>
+            //                 <p>
+            //                     Misalignments, <span class="weird">deviations from the line</span>, are often sources of contamination and enrichment. <span class="weird">Anomalies</span> can challenge our preconceived ideas or traditional beliefs about reality. When we encounter <span class="weird">something unexpected</span> or that does not fit our mental patterns, we are forced to reconsider our beliefs and seek <span class="weird">alternative answers</span>. This process, through the acceptance of new ideas and creative flows, challenges the universally known and shakes the status quo. <span class="weird">Anomalies</span> can instill courage to face reality.
+            //                 </p>
+            //             </div>
+                    
+            //         </div>
+            //     </div>
+            // </section>
+            
+            <section id="haunting_loops">
+                        
+                
+                
+                <div class="justify-center w-100 bg-white hide-bar" style="min-height: 100vh; overflow-x: auto; white-space: nowrap;">
+                    <div class="w-100" style="display: flex;">
+                        <div class="justify-center w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-80 max-h-50" src="/assets/media/anomalia/centoze/centonze_1.gif" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-80 max-h-50" src="/assets/media/anomalia/centoze/centonze_2.gif" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-80 max-h-50" src="/assets/media/anomalia/centoze/centonze_3.gif" alt="Liminal Journey" />
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
-                <div>
-                    But you are real?<br />
-                    Either aliens are fake and so are you, or both exist.<br />
-                    Choose.<br />
+                <div class="justify-center w-100 bg-white" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <h1>Haunting Loops, </h1>
+                        <h1>Margherita Centonze</h1>
+                        <h1>2024</h1>
+                    </div>
                 </div>
-            </div>
 
-            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
-                <video src="/assets/media/rec1.mp4" controls style="max-width: 75%; max-height: 75%;" />
-            </div>
-
-            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
-                <audio src="/assets/media/audio.mpga" controls style="max-width: 75%; max-height: 75%;" />
-            </div>
-
-            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
-                <video src="/assets/media/cat.mp4" mute autoplay loop style="max-width: 75%; max-height: 75%;" />
-            </div>
-
-            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
-                <video src="/assets/media/cool3dw.mp4" controls loop style="max-width: 75%; max-height: 75%;" />
-            </div>
-            
-            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
-                <img src="/assets/media/real.jpg" alt="Descrizione dell'immagine" style="max-width: 75%; max-height: 75%;" />
-            </div>
-
-            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
-                <div>
-                    But you are real?<br />
-                    Either aliens are fake and so are you, or both exist.<br />
-                    Choose.<br />
-                    But you are real?<br />
-                    Either aliens are fake and so are you, or both exist.<br />
-                    Choose.<br />
+                <div class="bg-red justify-center" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <div class="text-white">
+                            <p>
+                                Exploration of the themes of fear and the unknown through a series of three pixel art-style GIFs. Each GIF features a girl as the protagonist, immersed in seemingly normal everyday situations that gradually reveal supernatural and frightening elements. The use of the GIF format creates a loop, enabling constant repetition of the content, which enhances the suspense as the events unfold repeatedly.
+                            </p>
+                        </div>
+                    
+                    </div>
                 </div>
-            </div>
+                
+            </section>
 
-            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
-                <img src="/assets/media/tunnel.gif"  style="width: 100%; max-height: 10%;" />
-            </div>
+            <section id="where_to">
+                        
+                <div class="justify-center w-100 bg-turchese text-white" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <h1>Where to??,</h1>
+                        <h1>Morag Carver</h1>
+                        <h1>2024</h1>
+                    </div>
+                </div>
 
-            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
-                <img src="/assets/media/wheel.png" alt="Descrizione dell'immagine" style="max-width: 75%; max-height: 75%;" />
-            </div>
+                <div class="bg-turchese justify-center" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <div class="text-black">
+                            <p>
+                                Where are we going? Why are we moving? How do we choose our destination? <br />
+                                Between the moment where we ask ourselves these questions and the moment we take action to move,  lies the infinite number of uncertain directions that can lead to anomalies, mistakes, successes and disasters. <br />
+                                EVERYTHING IS IN MOTION, NOTHING IS CERTAIN.
+                            </p>
+                        </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="w-100 bg-turchese pb-40" style="min-height: 100vh;">
+                        <img class="w-100" src="/assets/media/anomalia/morag/morag.jpg" alt="Liminal Journey" />
+                </div>
+                
+            </section>
 
-            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
-                <img src="/assets/media/paradox.jpg" alt="Descrizione dell'immagine" style="max-width: 75%; max-height: 75%;" />
-            </div>
-        
+            <section id="untitled_giulia">
+                
+                <div class="justify-center w-100 bg-white" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <h1>Untitled, </h1>
+                        <h1>Giulia Coviello</h1>
+                        <h1>2024</h1>
+                    </div>
+                </div>
 
-            // <div class="#card">
-            //     <h2 class="c#ard-header">Download Files</h2>
-            //     <div class="#card-body">
-            //         <FileListComponent path=path set_path=set_path/>
+                <div class="bg-red justify-center" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <div class="text-white">
+                            <p>
+                                The three-dimensional sculpture, born from the interaction between artificial intelligence and the artists expression, explores the profound and delicate theme of suicide.
+                                The fluid and sinuous forms of the work evoke a palpable sense of anguish and loneliness. The twisted and hunched position of the body and head adds an additional emotional dimension, powerfully conveying the complexity of the associated feelings.
+                            </p>
+                        </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="justify-center w-100 bg-black" style="min-height: 100vh; overflow: hidden; white-space: nowrap;">
+                    <div class="w-100" style="display: flex;">
+                        <div class="justify-center w-100" style="flex: none; align-items: center;">
+                            <img class="" src="/assets/media/anomalia/giulia_untitled/untitled.gif" alt="Liminal Journey" />
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+
+            <section id="traumaland">
+                
+                <div class="justify-center w-100 bg-white" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <h1>Traumaland, </h1>
+                        <h1>Giacomo Tazzini</h1>
+                        <h1>2024</h1>
+                    </div>
+                </div>
+
+                <div class="bg-red justify-center" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <div class="text-white">
+                            <p>
+                                Traumaland is a non-place where tropical, rural and kitsch landscapes meet in a grotesque combination.
+                                <br />
+                                An amusement park thats not so amusing, where outcasts and oddballs wander through absurd and nightmarish scenarios.
+                            </p>
+
+                            <p>
+                                These characters are always alone and in agony, seemingly uncapable of making sense of their existence, as their journey becomes more and more pointless.
+                                <br /> 
+                                They belong to no one and nothing, and maybe theyre desperately chasing the perspective of a better past, a long gone childhood.
+                            </p>
+                            <p>
+                                The photos act as pieces of a narrative puzzle, like frames from a non-existing movie.
+                            </p>
+                            <p>
+                                All photographs were captured on film, with very grainy stocks, through a Pentax K1000.
+                            </p>
+                            <p>
+                                All locations were found along the Versilia coast, once a temple of Italian dolce vita, now a decadent and grotesque land.
+                            </p>
+                        </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="justify-center w-100 bg-white hide-bar" style="min-height: 100vh; overflow-x: auto; white-space: nowrap;">
+                    <div class="w-100" style="display: flex;">
+                        <div class="justify-center w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/1.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/2.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/3.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/4.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/5.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/6.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/7.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/8.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/9.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center bg-red w-90" style="flex: none; align-ite
+                        ms: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/10.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/11.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/12.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/13.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/14.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/15.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/16.jpg" alt="Liminal Journey" />
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+
+            <section id="michelle_hog">
+                
+                <div class="justify-center w-100 bg-blue text-white" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <h1>hog;ripple; </h1>
+                        <h1>Michelle Usai</h1>
+                        <h1>2024</h1>
+                    </div>
+                </div>
+                
+                <div class="w-100 bg-white hide-bar h-100" style="overflow-x: auto; white-space: nowrap;">
+                    <div class="w-100 h-100" style="display: flex;">
+                        <div class="w-100 h-100" style="flex: none; align-items: center;">
+                            <img class="h-100" src="/assets/media/anomalia/michelle_hog/hog_ripple.png" alt="Liminal Journey" />
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+
+            // <section id="ev_2ky">
+                
+            //     <div class="justify-center w-100 bg-white" style="min-height: 100vh; align-items: center;">
+            //         <div class="w-60">
+            //             <h1>I don’t believe in coincidences, </h1>
+            //             <h1>Rafael Bresciani</h1>
+            //             <h1>2024</h1>
+            //         </div>
             //     </div>
-            // </div>
-            // <br/>
 
-            <div style="height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
-                <div style="max-width: 50%;">
-                    <ChatComponent/>
+            //     <div class="bg-black justify-center" style="min-height: 100vh; align-items: center;">
+            //         <div class="w-60">
+            //             <div class="text-white">
+            //                 <p>
+            //                     There is no chance <br />
+            //                     There is no accident <br />
+            //                     There is no exit <br />
+            //                     Everything overloads <br />
+            //                 </p>
+            //             </div>
+                    
+            //         </div>
+            //     </div>
+                
+            //     <div class="w-100 bg-white" style="min-height: 100vh;">
+            //         <video autoplay loop muted controls class="w-100 h-100" src="/assets/media/anomalia/rafael/idbic_720.mov" alt="Liminal Journey"></video>
+            //     </div>
+                
+            // </section>
+
+            <section id="rafael_coincidences">
+                
+                <div class="justify-center w-100 bg-white" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <h1>"I don't believe in coincidences, "</h1>
+                        <h1>Rafael Bresciani</h1>
+                        <h1>2024</h1>
+                    </div>
                 </div>
-            </div>
 
+                <div class="bg-black justify-center" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <div class="text-white">
+                            <p>
+                                There is no chance <br />
+                                There is no accident <br />
+                                There is no exit <br />
+                                Everything overloads <br />
+                            </p>
+                        </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="w-100 bg-white" style="min-height: 100vh;">
+                    <video autoplay loop muted controls class="w-100 h-100" src="/assets/media/anomalia/rafael/idbic_720.mov" alt="Liminal Journey"></video>
+                </div>
+                
+            </section>
+
+            // <section id="lorenzo_glitch_nav">
+                
+            //     <div class="justify-center w-100 bg-white" style="min-height: 100vh; align-items: center;">
+            //         <div class="w-60">
+            //             <h1>Traumaland, </h1>
+            //             <h1>Giacomo Tazzini</h1>
+            //             <h1>2024</h1>
+            //         </div>
+            //     </div>
+
+            //     <div class="bg-red justify-center" style="min-height: 100vh; align-items: center;">
+            //         <div class="w-60">
+            //             <div class="text-white">
+            //                 <p>
+            //                     Traumaland is a non-place where tropical, rural and kitsch landscapes meet in a grotesque combination.
+            //                     <br />
+            //                     An amusement park thats not so amusing, where outcasts and oddballs wander through absurd and nightmarish scenarios.
+            //                 </p>
+
+            //                 <p>
+            //                     These characters are always alone and in agony, seemingly uncapable of making sense of their existence, as their journey becomes more and more pointless.
+            //                     <br /> 
+            //                     They belong to no one and nothing, and maybe theyre desperately chasing the perspective of a better past, a long gone childhood.
+            //                 </p>
+            //                 <p>
+            //                     The photos act as pieces of a narrative puzzle, like frames from a non-existing movie.
+            //                 </p>
+            //                 <p>
+            //                     All photographs were captured on film, with very grainy stocks, through a Pentax K1000.
+            //                 </p>
+            //                 <p>
+            //                     All locations were found along the Versilia coast, once a temple of Italian dolce vita, now a decadent and grotesque land.
+            //                 </p>
+            //             </div>
+                    
+            //         </div>
+            //     </div>
+                
+            //     <div class="justify-center w-100 bg-white hide-bar" style="min-height: 100vh; overflow-x: auto; white-space: nowrap;">
+            //         <div class="w-100" style="display: flex;">
+            //             <div class="justify-center w-90" style="flex: none; align-items: center;">
+            //                 <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/1.jpg" alt="Liminal Journey" />
+            //             </div>
+            //             <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+            //                 <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/2.jpg" alt="Liminal Journey" />
+            //             </div>
+            //             <div class="justify-center w-90" style="flex: none; align-items: center;">
+            //                 <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/3.jpg" alt="Liminal Journey" />
+            //             </div>
+            //             <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+            //                 <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/4.jpg" alt="Liminal Journey" />
+            //             </div>
+            //             <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+            //                 <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/5.jpg" alt="Liminal Journey" />
+            //             </div>
+            //             <div class="justify-center w-90" style="flex: none; align-items: center;">
+            //                 <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/6.jpg" alt="Liminal Journey" />
+            //             </div>
+            //             <div class="justify-center w-90" style="flex: none; align-items: center;">
+            //                 <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/7.jpg" alt="Liminal Journey" />
+            //             </div>
+            //             <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+            //                 <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/8.jpg" alt="Liminal Journey" />
+            //             </div>
+            //             <div class="justify-center w-90" style="flex: none; align-items: center;">
+            //                 <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/9.jpg" alt="Liminal Journey" />
+            //             </div>
+            //             <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+            //                 <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/10.jpg" alt="Liminal Journey" />
+            //             </div>
+            //             <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+            //                 <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/11.jpg" alt="Liminal Journey" />
+            //             </div>
+            //             <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+            //                 <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/12.jpg" alt="Liminal Journey" />
+            //             </div>
+            //             <div class="justify-center w-90" style="flex: none; align-items: center;">
+            //                 <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/12.jpg" alt="Liminal Journey" />
+            //             </div>
+            //             <div class="justify-center w-90" style="flex: none; align-items: center;">
+            //                 <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/13.jpg" alt="Liminal Journey" />
+            //             </div>
+            //             <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+            //                 <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/14.jpg" alt="Liminal Journey" />
+            //             </div>
+            //             <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+            //                 <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/15.jpg" alt="Liminal Journey" />
+            //             </div>
+            //             <div class="justify-center w-90" style="flex: none; align-items: center;">
+            //                 <img class="max-w-90 max-h-90" src="/assets/media/anomalia/traumaland/16.jpg" alt="Liminal Journey" />
+            //             </div>
+            //         </div>
+            //     </div>
+                
+            // </section>
+
+            // <section id="john_youtube">
+                
+            //     <div class="justify-center w-100 bg-white" style="min-height: 100vh; align-items: center;">
+            //         <div class="w-60">
+            //             <h1>I don’t believe in coincidences, </h1>
+            //             <h1>Rafael Bresciani</h1>
+            //             <h1>2024</h1>
+            //         </div>
+            //     </div>
+
+            //     <div class="bg-black justify-center" style="min-height: 100vh; align-items: center;">
+            //         <div class="w-60">
+            //             <div class="text-white">
+            //                 <p>
+            //                     There is no chance <br />
+            //                     There is no accident <br />
+            //                     There is no exit <br />
+            //                     Everything overloads <br />
+            //                 </p>
+            //             </div>
+                    
+            //         </div>
+            //     </div>
+                
+            //     <div class="w-100 bg-white" style="min-height: 100vh;">
+            //         <video autoplay loop muted controls class="w-100 h-100" src="/assets/media/anomalia/rafael/idbic_720.mov" alt="Liminal Journey"></video>
+            //     </div>
+                
+            // </section>
+
+            <section id="oltre_realta_giulia">
+                
+                <div class="justify-center w-100 bg-white" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <h1>Oltre la realtà, </h1>
+                        <h1>Giulia Coviello</h1>
+                        <h1>2024</h1>
+                    </div>
+                </div>
+
+                <div class="bg-black justify-center" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <div class="text-white">
+                            <p>
+                                In the digital era, photography and art have embraced artificial intelligence, opening the doors to new creative possibilities. AI-generated photographs, with their ability to manipulate and create a visual reality from a written prompt, can produce images that appear increasingly authentic, but are in fact the result of pure fiction and the imagination of the artist.
+                            </p>
+                        </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="justify-center w-100 bg-black hide-bar" style="min-height: 100vh; overflow-x: auto; white-space: nowrap;">
+                    <div class="w-100" style="display: flex;">
+                        <div class="justify-center w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-80 max-h-50" src="/assets/media/anomalia/giulia_untitled/oltre_la_realtà.png" alt="Liminal Journey" />
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+
+            <section id="letsglitch_destro">
+                
+                <div class="justify-center w-100 bg-white" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <h1>Let It Glitch! Let It Glitch! Let It Glitch!, Svalbards islands, </h1>
+                        <h1>Alessandro Destro</h1>
+                        <h1>2024</h1>
+                    </div>
+                </div>
+
+                <div class="bg-black justify-center" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <div class="text-white">
+                            <p>
+                            "Wandering around Google Earth you can notice how the urban areas are extremely detailed and clean. As we move into areas that are wild and unwelcoming to humans, the system has difficulty creating images that are coherent and faithful to reality. All this is amplified in snowy areas, exalting errors beyond belief."</p>
+                            <p>"“Let It Glitch! Let It Glitch! Let It Glitch!” is a digital journey that starts from Canada, passing through Greenland, Northern Europe, the Himalayan mountain range and then ending in Argentina, which highlights the errors that machines can create, and not the errors of human beings. This clip shows the various glitches present in the Svalbard Islands via Google Earth Studio."
+                            </p>
+                        </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="w-100 bg-white" style="min-height: 100vh;">
+                    <video autoplay loop muted controls class="w-100 h-100" src="/assets/media/anomalia/destro/destro_liminal.mp4" alt="Liminal Journey"></video>
+                </div>
+                
+            </section>
+
+            <section id="falling_federica">
+                
+                <div class="justify-center w-100 bg-white" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <h1>Falling Kazuha, </h1>
+                        <h1>kumicky</h1>
+                        <h1>2024</h1>
+                    </div>
+                </div>
+
+                <div class="bg-black justify-center" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <div class="text-white">
+                            <p>
+                                Videogame glitch where the character Kazuha is trapped into an endless loop, repeatedly colliding into an invisible wall and while he is falling backward.
+                            </p>
+                        </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="w-100 bg-black" style="min-height: 100vh;">
+                    <video autoplay loop muted class="w-100 h-100" src="/assets/media/anomalia/kazuha/falling_kazuha.gif" alt="Liminal Journey"></video>
+                </div>
+                
+            </section>
+
+            <section id="untitled_saba">
+                
+                <div class="justify-center w-100 bg-white" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <h1>Un uomo che si considera normale, </h1>
+                        <h1>Saba Rabie</h1>
+                        <h1>2024</h1>
+                    </div>
+                </div>
+
+                <div class="bg-black justify-center" style="min-height: 100vh; align-items: center;">
+                    <div class="w-60">
+                        <div class="text-white">
+                            <p>
+                            "“In my country, Iran, where conformity is demanded and wearing the hijab is obligatory, anomaly arises when one is compelled to wear it despite not believing in it. The struggle to fit society&#39;s expectations forces individuals to wear a mask in public, concealing their true identity. Only within the confines of their homes can they be authentic. This has led to the creation of personal realities on the deceptive platform of social media, where everyone presents a carefully constructed facade. My artwork delves into this dichotomy, inviting reflection on the tension between conformity and self-expression in a society that demands conformity.”"
+                            </p>
+                        </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="justify-center w-100 bg-white hide-bar" style="min-height: 100vh; overflow-x: auto; white-space: nowrap;">
+                    <div class="w-100" style="display: flex;">
+                        <div class="justify-center w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/saba/saba_1.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/saba/saba_2.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/saba/saba_3.gif" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/saba/saba_4.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center bg-red w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/saba/saba_5.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/saba/saba_6.jpg" alt="Liminal Journey" />
+                        </div>
+                        <div class="justify-center w-90" style="flex: none; align-items: center;">
+                            <img class="max-w-90 max-h-90" src="/assets/media/anomalia/saba/saba_7.jpg" alt="Liminal Journey" />
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+
+            // <section id="glitch_gta">
+                
+            //     <div class="justify-center w-100 bg-white" style="min-height: 100vh; align-items: center;">
+            //         <div class="w-60">
+            //             <h1>I don’t believe in coincidences, </h1>
+            //             <h1>Rafael Bresciani</h1>
+            //             <h1>2024</h1>
+            //         </div>
+            //     </div>
+
+            //     <div class="bg-black justify-center" style="min-height: 100vh; align-items: center;">
+            //         <div class="w-60">
+            //             <div class="text-white">
+            //                 <p>
+            //                     There is no chance <br />
+            //                     There is no accident <br />
+            //                     There is no exit <br />
+            //                     Everything overloads <br />
+            //                 </p>
+            //             </div>
+                    
+            //         </div>
+            //     </div>
+                
+            //     <div class="w-100 bg-white" style="min-height: 100vh;">
+            //         <video autoplay loop muted controls class="w-100 h-100" src="/assets/media/anomalia/rafael/idbic_720.mov" alt="Liminal Journey"></video>
+            //     </div>
+                
+            // </section>
             
+
+            <section id="guestbook">
+                <div class="w-100 h-100 pt-80 pb-80">
+                    <div class="justify-center">
+                        <ChatComponent/>
+                    </div>    
+                </div>
+            </section>
+
         </div>
+
+        <footer class="pt-80 pb-40">
+            <img src="/assets/logo_r.png" alt="Liminal Journey" style="max-width: 20%; max-height: 20%; margin: 0;" />
+        </footer>
+
     }
 }
 
@@ -143,195 +694,6 @@ fn NotFound() -> impl IntoView {
         <h1>"Not Found"</h1>
     }
 }
-
-#[server(GetFileList)]
-pub async fn get_file_list(
-    path : String
-) -> Result<Vec<(String, String, u64)>, ServerFnError> {
-    let base_path = std::env::current_dir()
-    .map_err(|e| format!("Error getting current directory: {:?}", e)).unwrap();
-    //Check if path contains "..", if so, return an error
-    if path.contains("..") {
-        return Err(leptos::ServerFnError::ServerError("Path contains '..'".to_string()));
-    }
-    let path_to_read = base_path.join("files").join(path.clone());
-    logging::log!("Listing directory: {:?}", path_to_read.clone());
-    let files = std::fs::read_dir(path_to_read)
-        .map_err(|e| format!("Error reading directory: {:?}", e)).unwrap();
-    let file_entries : Vec<(String, String, u64)> = files
-        .filter_map(|entry| {
-            match entry {
-                Ok(entry) => {
-                    if entry.file_type().map(|t| t.is_dir()).unwrap_or(false) {
-                        Some(("d".to_string(), entry.file_name().into_string().unwrap(), 0))
-                    } else {
-                        //get the file size in bytes
-                        let metadata = entry.metadata().unwrap();
-                        let size = metadata.len();
-                        Some(("f".to_string(), entry.file_name().into_string().unwrap(), size))
-                    }
-                },
-                Err(e) => {
-                    Some(("f".to_string(), format!("Error reading file entry: {:?}", e).to_string().into(), 0))
-                },
-            }
-        })
-        .collect();
-    
-    // Sort file_entries by name, with directories first, then files.
-    let mut file_entries = file_entries;
-    file_entries.sort_by(|a, b| {
-        if a.0 == "d" && b.0 == "f" {
-            std::cmp::Ordering::Less
-        } else if a.0 == "f" && b.0 == "d" {
-            std::cmp::Ordering::Greater
-        } else {
-            a.1.to_lowercase().cmp(&b.1.to_lowercase())
-        }
-    });
-    // If path is not empty, prepend ".." to the list of files
-    if !path.is_empty() {
-        let mut new_files = Vec::new();
-        new_files.push(("d".to_string(), "..".to_string(), 0));
-        new_files.extend(file_entries);
-        return Ok(new_files);
-    }
-
-    Ok(file_entries)
-}
-
-// #[component]
-// pub fn FileUploadComponent(
-//     path: ReadSignal<String>,
-// ) -> impl IntoView {
-//     view! {
-//         <div class="card">
-//             <h2 class="card-header">Upload Files</h2>
-//             <div class="card-body">
-//                 <form action="/upload" rel="external" method="post" enctype="multipart/form-data">
-//                     <input type="hidden" name="upload_path" value={path.clone()}/>
-//                     <input type="file" multiple name="file"/>
-//                     <button type="submit">Submit</button>
-//                     <img src="/assets/folder.png" style="width: 48px; height: 48px; margin-right: 10px"/>
-
-//                     <video controls src="/assets/2024-04-18 18-48-09.mp4"/>
-//                 </form>            
-//             </div>
-//         </div>
-//     }
-
-// }
-
-// #[component]
-// pub fn FileListComponent(
-//     path: ReadSignal<String>,
-//     set_path: WriteSignal<String>
-// ) -> impl IntoView {
-//     // our resource
-//     let directory_listing = create_local_resource(
-//         path,
-//         // every time `count` changes, this will run
-//         |value| async move {
-//             logging::log!("loading data from API for path {:?}", value);
-//             get_file_list(value).await
-//         },
-//     );
-
-//     // the resource's loading() method gives us a
-//     // signal to indicate whether it's currently loading
-//     let loading = directory_listing.loading();
-//     let is_loading = move || if loading() { "Loading..." } else { "" };
-//     view! {
-//         <div>
-//         Current Directory: {path.clone()}
-//         <br/>
-//         <p/>
-//         {is_loading}
-//         <div class="list-group">
-//             {
-//                 move || { 
-//                     match directory_listing.get() {
-//                         Some(result) => {
-//                             match result {
-//                                 Ok(files) => {
-//                                     files.into_iter()
-//                                     .map(move |n| {
-//                                         let (file_type_clone, file_name_clone, file_size_clone) = &n.clone();
-//                                         let path_value_clone = path.clone().get();
-//                                         let mut link_target: String = "#".to_string();
-//                                         if file_type_clone.clone() == "f" {
-//                                             link_target = format!("/files/{}/{}", path_value_clone, file_name_clone.clone()).to_string();
-//                                         }
-//                                         view!{
-//                                         <a href={link_target} rel="external" on:click=move |ev| {
-//                                                 let path_value = path.get();
-//                                                 let (file_type, file_name, _file_size) = n.clone();
-//                                                 // If path is "..", remove the last directory from the path
-//                                                 if file_name == ".." {
-//                                                     ev.prevent_default();
-//                                                     let mut path_clone = path_value.clone();
-//                                                     let mut path_parts: Vec<&str> = path_clone.split("/").collect();
-//                                                     path_parts.pop();
-//                                                     path_parts.pop();
-//                                                     path_clone = path_parts.join("/");
-//                                                     if !path_clone.ends_with("/") && !path_clone.is_empty() {
-//                                                         path_clone.push_str("/");
-//                                                     }
-//                                                     set_path(path_clone);
-//                                                 } else {
-//                                                     // if file_type is a directory, append it to the path
-//                                                     if file_type == "d" {
-//                                                         ev.prevent_default();
-//                                                         let mut path_clone = path_value.clone();
-//                                                         path_clone.push_str(file_name.clone().as_str());
-//                                                         path_clone.push_str("/");
-//                                                         set_path(path_clone);
-//                                                     }
-//                                                 }
-//                                             } class="list-group-item list-group-item-action">
-//                                             <img src={if file_type_clone == "d" {"/assets/folder.png"} else {"/assets/file.png"}} style="width: 48px; height: 48px; margin-right: 10px"/>
-//                                             {
-//                                                 if file_type_clone == "d" {
-//                                                     format!("{}/", file_name_clone)
-//                                                 } else {
-//                                                     format!("{}", file_name_clone)
-//                                                 }
-//                                             }
-//                                             <span class="float-end">
-//                                             {
-//                                                 if file_type_clone == "f" {
-//                                                     format!("{} ", file_size_clone.fmt_size(Conventional))
-//                                                 } else {
-//                                                     "".to_string()
-//                                                 }
-//                                             }
-//                                             </span>
-//                                         </a>
-//                                         }
-//                                     })
-//                                     .collect_view()
-//                                 }
-//                                 Err(e) => {
-//                                     logging::log!("Error displaying files: {:?}", e);
-//                                     leptos::View::Text(view! {
-//                                         "ERROR: Could not display files. Please try again later."
-//                                     })
-//                                 }
-//                             }
-//                         }
-//                         None => {
-//                             leptos::View::Text(view! {
-//                                 "No files found."
-//                             })
-//                         }
-//                     }
-//                 }
-//             }
-//             </div>
-//         </div>
-//     }
-
-// }
 
 #[server(GetChatMessages)]
 pub async fn get_chat_messages(
@@ -449,53 +811,62 @@ pub fn ChatComponent() -> impl IntoView {
     });
 
     view! {
-        <div class="card">
-        <h2 class="card-header">Guestbook</h2>
-        <div class="card-body overflow-y-scroll">
-          {
-            move || { 
-                match chat_messages.get() {
-                    Some(result) => {
-                        match result {
-                            Ok(messages) => {
-                                messages.into_iter()
-                                .map(move |n| {
-                                    let (user, message, _timestamp) = n.clone();
-                                    view!{
-                                    <div class="card" style="margin-top: 3rem; margin-bottom: 3rem;">
-                                        <div class="card-body" >
-                                            <p class="card-text">{user}: {message}</p>
-                                        </div>
-                                    </div>
+        <div class="">
+            <h2 class="">Guestbook</h2>
+            
+            <div class="max-w-60">
+                {
+                    move || { 
+                        match chat_messages.get() {
+                            Some(result) => {
+                                match result {
+                                    Ok(messages) => {
+                                        messages.into_iter()
+                                        .map(move |n| {
+                                            let (user, message, _timestamp) = n.clone();
+                                            view!{
+                                            <div>
+                                                <div>
+                                                    <p><span class="text-white">{user}: </span> {message}</p>
+                                                </div>
+                                            </div>
+                                            }
+                                        }).collect_view()
+                                    },
+                                    Err(e) => {
+                                        logging::log!("Error displaying Guestbook: {:?}", e);
+                                        leptos::View::Text(view! {
+                                            "ERROR: Could not display Guestbook. Please try again later."
+                                        })
                                     }
-                                }).collect_view()
+                                }
                             },
-                            Err(e) => {
-                                logging::log!("Error displaying Guestbook: {:?}", e);
+                            None => {
                                 leptos::View::Text(view! {
-                                    "ERROR: Could not display Guestbook. Please try again later."
+                                    "No messages left"
                                 })
                             }
                         }
-                    },
-                    None => {
-                        leptos::View::Text(view! {
-                            "No messages found"
-                        })
                     }
                 }
-            }
-          }
-          <div>
-          <form on:submit=on_submit>
-            <input type="text" class="form-control" placeholder="Name" node_ref=name_input_ref />
-            <input type="text" class="form-control" placeholder="Leave " node_ref=chat_input_ref />
-            <button class="btn btn-outline-secondary" type="submit" id="button-send">Add</button>
-            </form>
-          </div>
+
+            </div>
+
+            <div>
+                <form on:submit=on_submit class="w-100 pt-40 pb-40">
+                    <div class="justify-center">
+                       <div class="max-w-60">
+                        <input class=" mb-12" type="text" placeholder="Name" node_ref=name_input_ref />
+                        <br />
+                        <input class=" mb-12" type="text" placeholder="Leave" node_ref=chat_input_ref />
+                        <br />
+                        <button class="w-100 mb-12 bg-black text-red" type="submit" id="button-send">Add</button>
+                       </div>
+                    </div>
+                </form>
+            </div>
 
         </div>
-      </div>
 
     }
 }
