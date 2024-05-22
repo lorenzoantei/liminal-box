@@ -30,6 +30,9 @@ p {
     font-size: 1.3rem;
 }
 
+.w-10 {
+    width: 10px;
+}
 .w-60 {
     width: 60%;
 }
@@ -130,3 +133,36 @@ footer {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 } 
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 3%;
+    background-color: white;
+}
+
+#splash-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border: 2px solid white; /* Specifica spessore, tipo e colore del bordo */
+}
+
+footer a {
+    background-color: #e2221e;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    text-decoration: none; /* Rimuove la sottolineatura */
+    transition: background-color 0.3s ease;
+}
